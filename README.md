@@ -1,0 +1,2 @@
+# moneycollect-magento-payment-plug
+ 
