@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="moneycollect-static" type="host">static.moneycollect.com</value>
+                <value id="moneycollect-polyfill" type="host">cdn.polyfill.io</value>
+            </values>
+        </policy>
+        <policy id="font-src">
+            <values>
+                <value id="moneycollect-static" type="host">static.moneycollect.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="moneycollect-static" type="host">static.moneycollect.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="moneycollect-api" type="host">api.moneycollect.com</value>
+                <value id="moneycollect-sandbox" type="host">sandbox.moneycollect.com</value>
+            </values>
+        </policy>
+
+    </policies>
+</csp_whitelist>
+

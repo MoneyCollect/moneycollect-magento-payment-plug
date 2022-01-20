@@ -1,0 +1,112 @@
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+
+    <div class="payment-method-title field choice">
+
+        <input type="radio" name="payment[method]" class="radio" data-bind=" attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+
+        <label data-bind="attr: {'for': getCode()}" class="label">
+            <span class="moneycollect-icon-container" data-bind="css: { right: iconsRight }, if: hasIcons">
+                <span data-bind="foreach: icons()">
+                    <img class="moneycollect-icon" data-bind="attr:{src: path}">
+                </span>
+            </span>
+			<span data-bind="text: getTitle()"></span>
+		</label>
+
+    </div>
+
+    <div class="payment-method-content" data-bind="if: mcError">
+        <p class="message message-error error">
+            <!-- ko i18n: mcError() --><!-- /ko -->
+        </p>
+    </div>
+
+
+    <div class="payment-method-content" data-bind="">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <div class="payment-method-billing-address">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+
+        <fieldset class="fieldset" data-bind="if: isRedirected">
+            <div class="payment-method-note">
+                <!-- ko i18n: 'You will be redirected for payment processing.' --><!-- /ko -->
+            </div>
+        </fieldset>
+
+        <!--表单区域-->
+
+        <div id="moneycollect-card" class="fieldset" data-bind="if: isInpage, if: isInit" >
+
+            <div data-bind="if: cardLists" >
+                <div id="moneycollect-payment-method" data-bind="foreach: cardLists" >
+                    <div class="moneycollect-payment-method-list">
+                        <label>
+                            <input type="radio" name="moneycollect_payment_method" data-bind="attr:{value: id}" />
+                            <span data-bind="i18n: card.brand"></span>
+                            <span>••••</span>
+                            <span data-bind="i18n: card.last4"></span>
+                            <span data-bind="i18n: card.expire" ></span>
+                        </label>
+
+                        <span class="moneycollect-del-but" data-bind="attr:{data: id}" >×</span>
+                    </div>
+                </div>
+
+                <div class="moneycollect-payment-method-list">
+                    <label for="moneycollect-payment-method-new">
+                        <input type="radio" id="moneycollect-payment-method-new" name="moneycollect_payment_method" value="new" checked />
+                        <!-- ko i18n: 'Use a new card'--><!-- /ko -->
+                    </label>
+                </div>
+            </div>
+
+            <div class="moneycollect-elements">
+                <!-- ko i18n: 'Enter your card details:'--><!-- /ko -->
+            </div>
+
+            <div class="moneycollect-elements no-wrap">
+                <div id="moneycollect-card-form" class="moneycollect-elements-field">
+                    <div id="card-element" class="ab-elemen">
+                        <!-- a Moneycollect Element will be inserted here. -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="moneycollect-elements no-wrap">
+                <div id="moneycollect-card-errors" class="hide"></div>
+            </div>
+
+            <!--勾选保存卡选项-->
+            <div class="moneycollect-elements" data-bind="if: saveCardOn">
+                <div class="input-box">
+                    <label for="moneycollect-card-save">
+                        <input type="checkbox" id="moneycollect-card-save" data-bind="attr: { title: $t('Save card for future purchases') } " class="" name="payment[cc_save]" />
+                        <!-- ko i18n: 'Save card for future purchases'--><!-- /ko -->
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="checkout-agreements-block">
+            <!-- ko foreach: $parent.getRegion('before-place-order') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action primary checkout" type="submit" data-bind="click: placeCreditcard, enable: isPlaceOrderEnabled(), afterRender: cardFormInit() "  >
+                    <span data-bind="i18n: $t('Place Order')"></span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+        

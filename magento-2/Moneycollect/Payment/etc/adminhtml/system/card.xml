@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="moneycollect_card" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Credit Card Payment</label>
+
+        <field id="active" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/moneycollect/active</config_path>
+        </field>
+
+        <field id="title" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Title</label>
+            <comment>This is the payment method title used at the checkout page</comment>
+            <config_path>payment/moneycollect/title</config_path>
+        </field>
+
+        <field id="statement_descriptor" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Statement Descriptor</label>
+            <comment>Statement descriptors only supports 5-22 alphanumeric characters, spaces, and these special characters: &amp; , . - #, and it must contain at least one letter.</comment>
+            <config_path>payment/moneycollect/statement_descriptor</config_path>
+        </field>
+
+        <field id="pre_auth" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Pre auth</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/moneycollect/pre_auth</config_path>
+        </field>
+
+        <field id="checkout_model" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Checkout Model</label>
+            <source_model>Moneycollect\Payment\Model\Config\Source\CheckoutModel</source_model>
+            <config_path>payment/moneycollect/checkout_model</config_path>
+        </field>
+
+        <field id="save_card" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Save Customer Cards</label>
+            <comment>Enable this if you want to save customer cards on Moneycollect's servers so that they don't have to enter the details of the same card twice</comment>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/moneycollect/save_card</config_path>
+            <depends>
+                <field id="checkout_model" separator=",">0</field>
+            </depends>
+        </field>
+
+        <field id="elements_style" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Elements Style</label>
+            <source_model>Moneycollect\Payment\Model\Config\Source\ElementsStyle</source_model>
+            <config_path>payment/moneycollect/elements_style</config_path>
+            <depends>
+                <field id="checkout_model" separator=",">0</field>
+            </depends>
+        </field>
+
+        <field id="card_icons" translate="label" type="multiselect"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Select Card Icons</label>
+            <comment>Should we display card icons next to the title of the payment method?</comment>
+            <source_model>Moneycollect\Payment\Model\Config\Source\CardIcons</source_model>
+            <config_path>payment/moneycollect/card_icons</config_path>
+        </field>
+
+        <field id="allowspecific" translate="label" type="allowspecific" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Payment from Applicable Countries</label>
+            <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+            <config_path>payment/moneycollect/allowspecific</config_path>
+        </field>
+
+        <field id="specificcountry" translate="label" type="multiselect"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Payment from Specific Countries</label>
+            <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+            <config_path>payment/moneycollect/specificcountry</config_path>
+            <depends>
+                <field id="allowspecific" separator=",">1</field>
+            </depends>
+        </field>
+
+        <field id="sort_order" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Sort Order</label>
+            <config_path>payment/moneycollect/sort_order</config_path>
+        </field>
+
+    </group>
+</include>

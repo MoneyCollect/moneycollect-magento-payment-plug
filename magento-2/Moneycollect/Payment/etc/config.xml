@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <moneycollect>
+                <pay_model>0</pay_model>
+                <is_log>no</is_log>
+                <webhook>1</webhook>
+                <init_order_status>pending</init_order_status>
+                <success_order_status>processing</success_order_status>
+                <cancel_order_status>canceled</cancel_order_status>
+                <failure_order_status>closed</failure_order_status>
+                <hold_order_status>holded</hold_order_status>
+
+                <active>0</active>
+                <payment_action>authorize</payment_action>
+                <title>Credit Card</title>
+                <model>Moneycollect\Payment\Model\Method\Card</model>
+                <checkout_model>0</checkout_model>
+                <save_card>0</save_card>
+                <elements_style>1</elements_style>
+                <sort_order>1</sort_order>
+                <card_icons>visa_card,master_card</card_icons>
+                <allowspecific>0</allowspecific>
+            </moneycollect>
+
+        </payment>
+    </default>
+</config>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="moneycollect_setting" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Basic Setting</label>
+
+        <field id="version" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Version</label>
+            <frontend_model>Moneycollect\Payment\Model\Config\Source\Version</frontend_model>
+        </field>
+
+        <field id="pay_model" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Model</label>
+            <source_model>Moneycollect\Payment\Model\Config\Source\Model</source_model>
+            <config_path>payment/moneycollect/pay_model</config_path>
+        </field>
+
+        <field id="test_pu_Key" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Test Public Key</label>
+            <comment>Get your API keys from your MoneyCollect account. Invalid values will be rejected. Only values starting with "test_pu_" will be saved.</comment>
+            <config_path>payment/moneycollect/test_pu_Key</config_path>
+            <depends>
+                <field id="pay_model" separator=",">0</field>
+            </depends>
+        </field>
+
+        <field id="test_pr_Key" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Test Private Key</label>
+            <comment>Get your API keys from your MoneyCollect account. Invalid values will be rejected. Only values starting with "test_pr_" will be saved.</comment>
+            <config_path>payment/moneycollect/test_pr_Key</config_path>
+            <depends>
+                <field id="pay_model" separator=",">0</field>
+            </depends>
+        </field>
+
+        <field id="pu_Key" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Live Public Key</label>
+            <comment>Get your API keys from your MoneyCollect account. Invalid values will be rejected. Only values starting with "live_pu_" will be saved.</comment>
+            <config_path>payment/moneycollect/pu_Key</config_path>
+            <depends>
+                <field id="pay_model" separator=",">1</field>
+            </depends>
+        </field>
+
+        <field id="pr_Key" translate="label" type="text"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Live Private Key</label>
+            <comment>Get your API keys from your MoneyCollect account. Invalid values will be rejected. Only values starting with "live_pr_" will be saved.</comment>
+            <config_path>payment/moneycollect/pr_Key</config_path>
+            <depends>
+                <field id="pay_model" separator=",">1</field>
+            </depends>
+        </field>
+
+        <field id="icons_location" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Icons Location</label>
+            <source_model>Moneycollect\Payment\Model\Config\Source\IconLocation</source_model>
+            <config_path>payment/moneycollect/icons_location</config_path>
+        </field>
+
+
+        <field id="webhookUrl"  type="text"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Webhook URL</label>
+            <frontend_model>Moneycollect\Payment\Model\Config\Notifications\WebhookComment</frontend_model>
+        </field>
+
+        <field id="success_order_status" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Success Order</label>
+            <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+            <config_path>payment/moneycollect/success_order_status</config_path>
+        </field>
+
+        <field id="failure_order_status" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Failure Order</label>
+            <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+            <config_path>payment/moneycollect/failure_order_status</config_path>
+        </field>
+
+        <field id="cancel_order_status" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Cancel Order</label>
+            <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+            <config_path>payment/moneycollect/cancel_order_status</config_path>
+        </field>
+
+
+        <field id="start_log" translate="label" type="select"  showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Start Log</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/moneycollect/start_log</config_path>
+        </field>
+
+    </group>
+</include>

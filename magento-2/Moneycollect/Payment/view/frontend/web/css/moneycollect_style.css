@@ -1,0 +1,54 @@
+.moneycollect-icon-container .moneycollect-icon{
+    vertical-align:bottom;
+    width: auto;
+    height: 32px;
+}
+.moneycollect-icon-container.right{
+    float: right;
+}
+#moneycollect-card-form{
+    margin: 5px 0;
+}
+#moneycollect-card-errors{
+    border: 1px hsla(0,100%,50%,0.5) dashed;
+    padding: 5px 1em;
+    color: #D20;
+    height: auto;
+    margin: 0.5em auto 1em;
+}
+.hide{
+    display: none;
+}
+.moneycollect-icon-container img{
+    max-height: 26px;
+}
+.moneycollect-elements{
+    margin: 0 22px;
+}
+#moneycollect-payment-method{
+    padding:0;
+    margin:0;
+}
+.moneycollect-payment-method-list{
+    margin: 0 0 6px;
+    padding: 6px 0;
+}
+
+.moneycollect-payment-method-list:hover>.moneycollect-del-but{
+    display: inline-block;
+}
+.moneycollect-del-but{
+    margin-left: 10px;
+    padding: 0 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    background: darkred;
+    border-radius: 3px;
+    margin-bottom: -2px;
+    display: none;
+}
+.moneycollect-del-but:hover{
+    background: #6f0000;
+}
+
